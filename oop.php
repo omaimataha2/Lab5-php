@@ -13,7 +13,7 @@ class Database{
     private $password = '1234';
 	private $db;	
 	
-public function connect(){
+public function connectdb(){
         $con = new PDO($this->dsn, $this->user, $this->password);
 		
 		if($con){
@@ -78,7 +78,7 @@ public function update($ID, $name, $email, $password, $image){
 }
 
 $dbcon= new Database();
-$dbcon->connect();
+$dbcon->connectdb();
 $data=$dbcon->select();
 foreach($data as $d){
     echo "name:".$d->name.", email:".$d->email.".\n";
